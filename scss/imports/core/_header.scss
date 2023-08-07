@@ -1,0 +1,153 @@
+// css header
+.header {
+    &.active {
+        .header_content-bot {
+            top: 0;
+            transition: 0.4s;
+        }
+    }
+    &_content {
+        &-top {
+            background: $blue-cl;
+            .wrap {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .slogan,
+                .text {
+                    color: $white-cl;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+                .contact {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    .road {
+                        display: flex;
+                        align-items: center;
+                        padding-right: 15px;
+                        gap: 10px;
+                        border-right: 1px solid $white-cl;
+                    }
+                    .social {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        .list {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        &-bot {
+            position: fixed;
+            top: 40px;
+            width: 100%;
+            transition: 0.4s;
+            z-index: 100;
+            background: $white-cl;
+            .line {
+                position: absolute;
+                content: "";
+                bottom: -5px;
+                width: 0%;
+                height: 5px;
+                background: $blue-light-cl;
+            }
+            .wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .nav {
+                    display: flex;
+                    align-items: center;
+                    li {
+                        &.active {
+                            a {
+                                color: #333;
+                            }
+                        }
+                        a {
+                            box-sizing: border-box;
+                            display: inline-block;
+                            padding: 25px 20px;
+                            color: #777;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                        &:last-child {
+                            border-radius: 100px;
+                            background: #009df7;
+                            a {
+                                padding: 5px 20px;
+                                color: $white-cl;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1200px) {
+        &_content {
+            &-bot {
+                .wrap {
+                    .nav {
+                        li {
+                            a {
+                                padding: 25px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include sm {
+        // CSS responsive tablet
+        &_content {
+            &-top {
+                .wrap {
+                    .contact {
+                        display: none;
+                    }
+                }
+            }
+            &-bot {
+                padding: 20px 0 5px;
+                .wrap {
+                    justify-content: center;
+                    .nav {
+                        display: none;
+                    }
+                }
+                .line {
+                    display: none;
+                }
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        // CSS responsive mobile
+        &_content {
+            &-bot {
+                .wrap {
+                    .logo {
+                        img {
+                            width: 150px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
